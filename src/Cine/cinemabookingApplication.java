@@ -18,7 +18,24 @@ public class cinemabookingApplication {
      * @param args Parametros
      */
     public static void main(final String[] args) {
-        final CinemaBooking Cine = new CinemaBooking(75);
+
+        int asientos = -1;
+        do {
+            try {
+                asientos = Integer.parseInt(
+                        JOptionPane.showInputDialog(null, "Introduzca la cantidad de asientos a reservar").trim());
+                if (asientos > 0) {
+                    JOptionPane.showMessageDialog(null, "Cine creado con " + asientos + " asientos con éxito");
+                    break;
+                } else {
+                    JOptionPane.showMessageDialog(null, "El cine no puede tener asientos negativos...");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error. Solo puedes escribir números.");
+            }
+        } while (true);
+
+        final CinemaBooking Cine = new CinemaBooking(asientos);
         boolean salir = false;
 
         do {
@@ -33,13 +50,13 @@ public class cinemabookingApplication {
                     if (Cine.consultar() > 0) {
                         do {
                             try {
-                                final int asientos = Integer.parseInt(JOptionPane
+                                final int asientosreservar = Integer.parseInt(JOptionPane
                                         .showInputDialog(null, "Introduzca la cantidad de asientos a reservar").trim());
-                                if (asientos > 0) {
-                                    if (Cine.consultar() - asientos >= 0) {
-                                        Cine.reservar(asientos);
+                                if (asientosreservar > 0) {
+                                    if (Cine.consultar() - asientosreservar >= 0) {
+                                        Cine.reservar(asientosreservar);
                                         JOptionPane.showMessageDialog(null,
-                                                "Reservado " + asientos + " asientos con éxito");
+                                                "Reservado " + asientosreservar + " asientos con éxito");
                                         break;
                                     } else {
                                         JOptionPane.showMessageDialog(null, "No puedes reservar tantos asientos...");
@@ -58,13 +75,13 @@ public class cinemabookingApplication {
                 case 1:
                     do {
                         try {
-                            final int asientos = Integer.parseInt(JOptionPane
+                            final int asientoscancelar = Integer.parseInt(JOptionPane
                                     .showInputDialog(null, "Introduzca la cantidad de asientos a cancelar la reserva.")
                                     .trim());
-                            if (asientos > 0) {
-                                Cine.cancelar(asientos);
+                            if (asientoscancelar > 0) {
+                                Cine.cancelar(asientoscancelar);
                                 JOptionPane.showMessageDialog(null,
-                                        "Cancelada la reserva de " + asientos + " asientos con éxito");
+                                        "Cancelada la reserva de " + asientoscancelar + " asientos con éxito");
                                 break;
                             } else {
                                 JOptionPane.showMessageDialog(null, "No puedes cancelar esos asientos...");
