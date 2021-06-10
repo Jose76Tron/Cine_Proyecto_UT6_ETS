@@ -6,7 +6,7 @@ package Cine;
  * 
  * @author José Ramón Navarro González
  * @author 1ºA - DAM
- * @version 1.0
+ * @version 1.1
  * @since 10/06/2021
  */
 public class CinemaBooking {
