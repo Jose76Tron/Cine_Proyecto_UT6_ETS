@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
  * @author 1ºA - DAM
  * @version 1.0
  * @since 10/06/2021
- */
+ */ 
 public class cinemabookingApplication {
 
     /**
