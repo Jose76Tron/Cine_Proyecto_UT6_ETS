@@ -11,6 +11,12 @@ import javax.swing.JOptionPane;
  * @since 10/06/2021
  */
 public class cinemabookingApplication {
+
+    /**
+     * Programa principal
+     * 
+     * @param args Parametros
+     */
     public static void main(final String[] args) {
         final CinemaBooking Cine = new CinemaBooking(75);
         boolean salir = true;
@@ -44,7 +50,7 @@ public class cinemabookingApplication {
                     final int asientos = Integer.parseInt(JOptionPane.showInputDialog(null,
                             "Introduzca la cantidad de asientos a cancelar la reserva."));
                     if (asientos > 0) {
-                        Cine.cancel(asientos);
+                        Cine.cancelar(asientos);
                         JOptionPane.showMessageDialog(null,
                                 "Cancelada la reserva de " + asientos + " asientos con éxito");
                     } else {
